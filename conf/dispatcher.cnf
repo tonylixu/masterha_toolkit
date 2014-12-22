@@ -1,0 +1,4 @@
+[default]
+dispatch_method		= vip
+mha_cluster_conf	= /etc/masterha/cluster.cnf
+report_email		= user@example.com
