@@ -2,8 +2,8 @@
 
 import sys
 from argparse import ArgumentParser
-from conf.config import GlobalConfig
-from lib.dispatch.vip import DispatchManager
+from masterha_toolkit.config import GlobalConfig
+from masterha_toolkit.dispatches.vip import DispatchManager
 
 CONFIGPATH = "/etc/masterha_dispatcher/dispatcher.cnf"
 def configure_argparse(parser):
