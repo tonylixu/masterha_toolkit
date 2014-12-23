@@ -69,13 +69,22 @@ class DispatchManager(object):
                                  self.vip["address"], self.vip["subnet"], self.vip["interface"])
         
     def __init__(self, c, args):
+        config_spec = """
+        [dispatch]
+        vip_address             = ip_addr
+        vip_subnet              = integer(8,32)
+        vip_interface           = string
+        use_sudo                = boolean(default=False)
+        """.splitlines()
+        c.add_dispatch(c.config["dispatcher"]["dispatch_method"], config_spec)
+
         self.command = args.command
         self.ssh = {}
         for arg in ("orig_master_host", "orig_master_ip",
                     "ssh_user", "ssh_options", "new_master_host",
                     "orig_master_ssh_user", "new_master_ssh_user"):
             self.ssh[arg] = getattr(args, arg)
-        if c.config["dispatch"]["use_sudo"] in ("yes", "y", 1, "True", True):
+        if c.config["dispatch"]["use_sudo"]:
             self.ssh["use_sudo"] = True
         else:
             self.ssh["use_sudo"] = False

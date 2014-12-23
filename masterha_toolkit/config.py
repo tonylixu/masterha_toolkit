@@ -21,7 +21,7 @@ class GlobalConfig(object):
         new_config = self._parse_config(config_file, config_spec, validator)
         self.config.update(new_config)
 
-    def _add_dispatch(self, dispatch_method, config_spec=None, validator=None):
+    def add_dispatch(self, dispatch_method, config_spec=None, validator=None):
         config_file = os.path.join(self.config_dir, 'dispatch', dispatch_method) + ".cnf"
         self._add_config(config_file)
         
@@ -37,4 +37,3 @@ class GlobalConfig(object):
 	""".splitlines()
         
         self._add_config(config_file, config_spec)
-        self._add_dispatch(self.config["dispatcher"]["dispatch_method"])
