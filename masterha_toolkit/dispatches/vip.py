@@ -88,6 +88,7 @@ class DispatchManager(object):
             LOGGER.error("Failover SSH action returned with exit status %s for command '%s'",
                          return_value, self.command)
             LOGGER.info("SSH stderr from host %s: %s", ssh_host, error)
+            return False
 
 
     def __init__(self, c, args):
