@@ -21,7 +21,7 @@ test_requirements = [
 
 setup(
     name='masterha_toolkit',
-    version='0.1.0',
+    version='0.2.0',
     description='Tools for MySQL MasterHA failover and monitoring',
     long_description=readme + '\n\n' + history,
     author='Tyler Mitchell',
